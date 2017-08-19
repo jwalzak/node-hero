@@ -1,15 +1,22 @@
+const path = require('path')
 const express = require('express')
+const exphbs = require('express-handlebars')
+
 const app = express()
-const port = 3000
 
 app.get('/', (request, response) => {
-  response.send('Word up from Express')
+  response.render('home', {
+    name: 'Jason'
+  })
 })
 
-app.listen(port, (err) => {
-  if(err) {
-    return console.log('Some shit went down', err)
-  }
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  layoutsDir: path.join(__dirname, 'views/layouts')
+}))
 
-console.log(`Server is listening on ${port}`)
-})
+app.set('view engine', '.hbs')
+app.set('views', path.join(__dirname, 'views'))
+
+app.listen(3000)
