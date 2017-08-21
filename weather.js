@@ -1,6 +1,7 @@
 const express = require('express')
 const rp      = require('request-promise')
 const exphbs  = require('express-handlebars')
+const path    = require('path')
 
 const app = express()
 
@@ -30,3 +31,5 @@ app.get('/:city', (req, res) => {
   res.render('error')
   })
 })
+
+app.listen(3000)
