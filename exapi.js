@@ -2,7 +2,7 @@
 const request = require('request-promise')
 
 const options = {
-  method: 'GET'
+  method: 'GET',
   uri: 'https://risingstack.com'
 }
 
@@ -32,4 +32,4 @@ request(options)
   .catch(function (err) {
     // Handle error
   })
-
+  )

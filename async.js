@@ -2,12 +2,12 @@ const fs = require('fs')
 
 function stats (file) {
   return new Promise((resolve, reject) => {
-    fs.stats(file, err, data) => {
+    fs.stats = (file, err, data) => {
       if (err) {
-        return reject (err)
+        return reject(err)
       }
       resolve(data)
-    })
+    }
   })
 }
 
